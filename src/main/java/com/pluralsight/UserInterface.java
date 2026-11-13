@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.List;
+
 public class UserInterface {
 
     private Dealership dealership;
@@ -9,9 +11,11 @@ public class UserInterface {
     }
     //load the info from other classes
     private void init(){
+
         DealershipFileManager loader = new DealershipFileManager();
 
         dealership = loader.getDealership();
+
 
     }
     public void display() {
@@ -58,7 +62,9 @@ public class UserInterface {
                 case 7 -> processGetAllVehiclesRequest();
                 case 8 -> processAddVehicleRequest();
                 case 9 -> processRemoveVehicleRequest();
-            //  case 99 -> Exit
+                case 99 -> System.out.println("Have a nice day");
+                default -> System.out.println("Invalid input, please use one of the inputs listed");
+
             }
         } while (command !=99);
 
@@ -83,12 +89,22 @@ public class UserInterface {
 
     }
     public void processGetAllVehiclesRequest() {
+        displayVehicles(dealership.getAllVehicles());
 
     }
     public void processAddVehicleRequest() {
 
+
     }
     public void processRemoveVehicleRequest() {
 
+    }
+    private void displayVehicles(List<Vehicle>vehicles) {
+
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+
+
+        }
     }
 }

@@ -50,7 +50,7 @@ public class DealershipFileManager {
             return dealership;
 
         } catch (IOException e) {
-            System.out.println("Error in file, try again");
+            e.printStackTrace();
         }
         return null;
     }
