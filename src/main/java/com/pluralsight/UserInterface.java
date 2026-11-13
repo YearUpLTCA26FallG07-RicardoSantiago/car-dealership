@@ -81,6 +81,12 @@ public class UserInterface {
     }
     public void processGetByColorRequest() {
 
+        String color = Console.promptForString("Enter the color: ");
+
+        List<Vehicle> vehicles = dealership.getVehiclesByColor(color);
+
+        displayVehicles(vehicles);
+
     }
     public void processGetByMileageRequest() {
 
