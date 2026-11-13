@@ -22,6 +22,9 @@ public class DealershipFileManager {
             String address= dealershipinfo[1];
             String phone = dealershipinfo[2];
 
+            //Stating dealership object
+            Dealership dealership = new Dealership(name,address,phone);
+
             //Reading the Vehicles
             String line;
 
@@ -37,14 +40,18 @@ public class DealershipFileManager {
                 int odometer = Integer.parseInt(car[6]);
                 BigDecimal price = new BigDecimal(car[7]);
 
+                //Stating the vehicle object
+                Vehicle vehicle = new Vehicle(vin,year,make,model,type,color,odometer,price);
+
+                //Adding the vehicle object into the dealership object
+                dealership.addVehicle(vehicle);
             }
-
-
+            reader.close();
+            return dealership;
 
         } catch (IOException e) {
             System.out.println("Error in file, try again");
         }
-
         return null;
     }
 
