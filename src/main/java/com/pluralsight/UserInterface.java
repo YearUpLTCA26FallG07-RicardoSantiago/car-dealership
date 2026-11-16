@@ -112,10 +112,33 @@ public class UserInterface {
 
     }
     public void processGetAllVehiclesRequest() {
+
         displayVehicles(dealership.getAllVehicles());
 
     }
     public void processAddVehicleRequest() {
+
+        int vin = Console.promptForInt("Enter the VIN: ");
+
+        int year = Console.promptForInt("Enter the Year: ");
+
+        String make = Console.promptForString("Enter the make");
+
+        String model = Console.promptForString("Enter the model: ");
+
+        String vehicleType = Console.promptForString("Enter the vehicle Type: ");
+
+        String color = Console.promptForString("Enter the color: ");
+
+        int odometer = Console.promptForInt("Enter the odometer reading: ");
+
+        BigDecimal price = new BigDecimal(Console.promptForInt("Enter the price: "));
+
+        Vehicle vehicle = new Vehicle(vin,year,make,model,vehicleType,color, odometer,price);
+
+        dealership.addVehicle(vehicle);
+
+        System.out.println(vehicle +"Has been added successfully");
 
 
     }
