@@ -79,8 +79,7 @@ public class UserInterface {
 
         List<Vehicle> vehicles = dealership.getVehiclesByPrice(min,max);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle); }
+        displayVehicles(vehicles);
 
     }
     public void processGetByMakeModelRequest() {
