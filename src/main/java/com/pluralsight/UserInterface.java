@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class UserInterface {
@@ -72,8 +73,21 @@ public class UserInterface {
     }
     public void processGetByPriceRequest() {
 
+        BigDecimal min = new BigDecimal(Console.promptForString("Enter the mininum: "));
+
+        BigDecimal max = new BigDecimal(Console.promptForString("Enter the maximum: "));
+
+        List<Vehicle> vehicles = dealership.getVehiclesByPrice(min,max);
+
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle); }
+
     }
     public void processGetByMakeModelRequest() {
+
+        String make = Console.promptForString("Enter the make of the car: ");
+
+        String model = Console.promptForString("Enter the model of the car");
 
     }
     public void processGetByYearRequest() {
