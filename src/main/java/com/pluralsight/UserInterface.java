@@ -86,7 +86,11 @@ public class UserInterface {
 
         String make = Console.promptForString("Enter the make of the car: ");
 
-        String model = Console.promptForString("Enter the model of the car");
+        String model = Console.promptForString("Enter the model of the car: ");
+
+        List<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make,model);
+
+        displayVehicles(vehicles);
 
     }
     public void processGetByYearRequest() {

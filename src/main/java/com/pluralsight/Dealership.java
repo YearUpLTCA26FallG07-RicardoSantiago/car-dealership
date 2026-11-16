@@ -71,7 +71,16 @@ public class Dealership {
 
     //Search by Make/Model
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+
+        List<Vehicle> matchingVehicles = new ArrayList<>();
+
+        for(Vehicle vehicle : inventory) {
+            if(vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
+
+                matchingVehicles.add(vehicle);
+            }
+        }
+        return matchingVehicles;
     }
 
     //Search by Year
