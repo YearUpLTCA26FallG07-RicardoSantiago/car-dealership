@@ -95,6 +95,12 @@ public class UserInterface {
     }
     public void processGetByYearRequest() {
 
+        int min = Console.promptForInt("Enter the mininum year");
+        int max = Console.promptForInt("Enter the Max year: ");
+
+        List<Vehicle> vehicles = dealership.getVehiclesByYear(min,max);
+        displayVehicles(vehicles);
+
     }
     public void processGetByColorRequest() {
 
@@ -107,8 +113,18 @@ public class UserInterface {
     }
     public void processGetByMileageRequest() {
 
+        int min = Console.promptForInt("Enter the minimum miles: ");
+        int max = Console.promptForInt("Enter the Max miles: ");
+
+        List<Vehicle> vehicles = dealership.getVehiclesByYear(min,max);
+        displayVehicles(vehicles);
+
     }
     public void processGetByVehicleTypeRequest() {
+
+        String vehicleType = Console.promptForString("Enter the vehicle type: ");
+        List<Vehicle> vehicles = dealership.getVehiclesByType(vehicleType);
+        displayVehicles(vehicles);
 
     }
     public void processGetAllVehiclesRequest() {
@@ -143,6 +159,12 @@ public class UserInterface {
 
     }
     public void processRemoveVehicleRequest() {
+
+        int vin = Console.promptForInt("Enter the VIN: ");
+
+        dealership.removeVehicle(vin);
+
+        System.out.println("Vehicle has been successfully removed.");
 
     }
     private void displayVehicles(List<Vehicle>vehicles) {
